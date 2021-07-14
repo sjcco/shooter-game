@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-import config from "../../src/Config/config";
+import config from '../../src/Config/config';
 
 test('config object', () => {
   expect(typeof config === 'object').toBe(true);

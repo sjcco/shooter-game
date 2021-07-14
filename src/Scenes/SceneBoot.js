@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 
 export default class SceneBoot extends Phaser.Scene {
   constructor() {
-    super({ key: "Boot" });
+    super({ key: 'Boot' });
   }
 
   preload() {

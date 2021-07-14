@@ -2,4 +2,4 @@
  * @jest-environment jsdom
  */
 
- import SceneMainMenu from "../../src/Config/SceneBoot";
+import SceneMainMenu from '../../src/Config/SceneBoot';
