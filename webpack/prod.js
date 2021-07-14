@@ -1,6 +1,6 @@
-const merge = require('webpack-merge');
-const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
+const merge = require('webpack-merge');// eslint-disable-line import/no-extraneous-dependencies
+const path = require('path');// eslint-disable-line
+const TerserPlugin = require('terser-webpack-plugin');// eslint-disable-line import/no-extraneous-dependencies
 const base = require('./base');
 
 module.exports = merge(base, {

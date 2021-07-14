@@ -19,11 +19,11 @@ export default class SceneTitle extends Phaser.Scene {
 
     this.btnStart.setInteractive();
 
-    this.btnStart.on('pointerdown', function () {
+    this.btnStart.on('pointerdown', () => {
       this.sfx.btnDown.play();
     }, this);
 
-    this.btnStart.on('pointerup', function () {
+    this.btnStart.on('pointerup', () => {
       this.scene.start('Game');
     }, this);
   }
