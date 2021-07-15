@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
 import Player from '../characters/player';
+import Enemy from '../characters/enemies';
+import getSpawnPoint from '../helpers/spawnpoints';
 
 export default class SceneGame extends Phaser.Scene {
   constructor() {
@@ -15,9 +17,23 @@ export default class SceneGame extends Phaser.Scene {
   }
 
   create() {
+    this.sfx = {
+      explosions: [
+        this.sound.add('kill1'),
+        this.sound.add('kill2'),
+        this.sound.add('kill3'),
+        this.sound.add('kill4'),
+        this.sound.add('kill5'),
+      ],
+    };
+
     this.setBackground();
 
     this.ground = this.physics.add.staticImage(this.game.config.width * 0.5, 480, 'ground').refreshBody();
+
+    this.raycaster = this.raycasterPlugin.createRaycaster();
+
+    this.ray = this.raycaster.createRay();
 
     this.player = new Player(
       this,
@@ -27,6 +43,39 @@ export default class SceneGame extends Phaser.Scene {
 
     this.physics.add.collider(this.player, this.ground);
     this.cursors = this.input.keyboard.createCursorKeys();
+    this.keySpace = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+    this.gunner = this.add.sprite(100, 100);
+    this.gunner.play('gunner-blue-crouch-right-anim');
+
+    this.enemies = this.add.group();
+    this.playerBullets = this.add.group();
+
+    this.time.addEvent({
+      delay: 2000,
+      callback: () => {
+        const enemy = new Enemy(
+          this,
+          ...getSpawnPoint(),
+        );
+        this.enemies.add(enemy);
+
+        this.physics.add.collider(this.enemies, this.ground);
+
+        this.physics.add.collider(this.playerBullets, this.enemies, (playerBullet, enemy) => {
+          if (enemy) {
+            if (enemy.onDestroy !== undefined) {
+              enemy.onDestroy();
+            }
+
+            enemy.explode(true);
+            playerBullet.destroy();
+          }
+        });
+      },
+      callbackScope: this,
+      loop: true,
+    });
   }
 
   update() {
@@ -40,8 +89,12 @@ export default class SceneGame extends Phaser.Scene {
     }
     if (this.cursors.up.isDown && this.player.body.touching.down) {
       this.player.jump();
-    } else if (this.cursors.down.isDown && this.player.body.touching.down) {
-      this.player.crouch();
+    }
+    if (this.keySpace.isDown) {
+      this.player.setData('isShooting', true);
+    } else {
+      this.player.setData('timerShootTick', this.player.getData('timerShootDelay') - 1);
+      this.player.setData('isShooting', false);
     }
   }
 }
