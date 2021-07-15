@@ -1,11 +1,15 @@
-import character from './character';
+import Bullet from '../entities/bullets';
+import Character from './character';
 
-export default class Player extends character {
+export default class Player extends Character {
   constructor(scene, x, y, key) {
     super(scene, x, y, key, 'Player');
     this.setData('speed', 150);
     this.setData('face-direction', 'right');
     this.anims.play('gunner-blue-idle-right-anim', true);
+    this.setData('isShooting', false);
+    this.setData('timerShootDelay', 10);
+    this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
   }
 
   moveLeft() {
@@ -15,6 +19,7 @@ export default class Player extends character {
       this.anims.play('gunner-blue-run-left-anim', true);
     } else {
       this.body.velocity.x = -100;
+      this.play('gunner-blue-jump-left-anim', true);
     }
   }
 
@@ -25,6 +30,7 @@ export default class Player extends character {
       this.anims.play('gunner-blue-run-right-anim', true);
     } else {
       this.body.velocity.x = 100;
+      this.play('gunner-blue-jump-right-anim', false);
     }
   }
 
@@ -45,15 +51,24 @@ export default class Player extends character {
     }
   }
 
-  crouch() {
-    if (this.getData('face-direction') === 'right') {
-      this.play('gunner-blue-crouch-right-anim', true);
-    } else {
-      this.play('gunner-blue-crouch-left-anim', true);
-    }
-  }
-
   update() {
     this.body.velocity.x = 0;
+
+    if (this.getData('isShooting')) {
+      if (this.getData('timerShootTick') < this.getData('timerShootDelay')) {
+        this.setData('timerShootTick', this.getData('timerShootTick') + 1); // every game update, increase timerShootTick by one until we reach the value of timerShootDelay
+      } else { // when the "manual timer" is triggered:
+        let laser;
+        if (this.getData('face-direction') === 'right') {
+          laser = new Bullet(this.scene, this.x + 15, this.y - 2, 250);
+        } else if (this.getData('face-direction') === 'left') {
+          laser = new Bullet(this.scene, this.x - 15, this.y - 2, -250);
+        }
+        this.scene.playerBullets.add(laser);
+
+        // play the shooting sound effect
+        this.setData('timerShootTick', 0);
+      }
+    }
   }
 }
