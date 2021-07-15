@@ -93,12 +93,27 @@ export default class ScenePreloader extends Phaser.Scene {
 
 
     this.load.audio('sndBtnDown', 'src/assets/sounds/sndBtnDown.wav');
+    this.load.audio('kill1', 'src/assets/sounds/impactsplat01.mp3');
+    this.load.audio('kill2', 'src/assets/sounds/impactsplat02.mp3');
+    this.load.audio('kill3', 'src/assets/sounds/impactsplat03.mp3');
+    this.load.audio('kill4', 'src/assets/sounds/impactsplat04.mp3');
+    this.load.audio('kill5', 'src/assets/sounds/impactsplat05.mp3');
 
     this.load.image('title', 'src/assets/title.png');
     this.load.image('startBtn', 'src/assets/gui/Start_BTN.png');
     this.load.image('sky', 'src/assets/sky.png');
     this.load.image('far-ground', 'src/assets/far-grounds.png');
     this.load.image('ground', 'src/assets/tile.png');
+    this.load.image('bullet', 'src/assets/bullet.png');
+
+    this.load.spritesheet('sprExplosion', 'src/assets/sprExplosion.png', {
+      frameWidth: 32,
+      frameHeight: 32,
+    });
+    this.load.spritesheet('Explosion', 'src/assets/Explosion.png', {
+      frameWidth: 96,
+      frameHeight: 96,
+    });
 
     this.load.spritesheet('gunner-red-idle-right', 'src/assets/characters/Gunner_Red_Idle_right.png', {
       frameWidth: 48,
@@ -184,6 +199,20 @@ export default class ScenePreloader extends Phaser.Scene {
   }
 
   create() {
+    this.anims.create({
+      key: 'sprExplosion',
+      frames: this.anims.generateFrameNumbers('sprExplosion'),
+      frameRate: 20,
+      repeat: 0,
+    });
+    this.anims.create({
+      key: 'Explosion',
+      frames: this.anims.generateFrameNumbers('Explosion'),
+      frameRate: 20,
+      repeat: 0,
+    });
+
+
     this.anims.create({
       key: 'gunner-red-idle-right-anim',
       frames: this.anims.generateFrameNames('gunner-red-idle-right'),
@@ -296,15 +325,13 @@ export default class ScenePreloader extends Phaser.Scene {
     });
     this.anims.create({
       key: 'gunner-blue-crouch-right-anim',
-      frames: this.anims.generateFrameNames('gunner-blue-crouch-right', { start: 0, end: 3 }),
+      frames: this.anims.generateFrameNames('gunner-blue-crouch-right'),
       frameRate: 20,
-      repeat: 0,
     });
     this.anims.create({
       key: 'gunner-blue-crouch-left-anim',
       frames: this.anims.generateFrameNames('gunner-blue-crouch-left'),
       frameRate: 20,
-      repeat: 0,
     });
   }
 }
