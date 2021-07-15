@@ -1,1 +1,11 @@
 /* styles */
+
+.container {
+  display: flex;
+  margin: auto;
+  width: auto;
+}
+
+canvas {
+  margin: auto;
+}
