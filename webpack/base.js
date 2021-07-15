@@ -2,12 +2,16 @@ const webpack = require('webpack');// eslint-disable-line import/no-extraneous-d
 const path = require('path');// eslint-disable-line import/no-extraneous-dependencies
 const HtmlWebpackPlugin = require('html-webpack-plugin');// eslint-disable-line import/no-extraneous-dependencies
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');// eslint-disable-line import/no-extraneous-dependencies
-
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");// eslint-disable-line 
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
   module: {
     rules: [
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -36,5 +40,6 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
     }),
+    new MiniCssExtractPlugin(),
   ],
 };
