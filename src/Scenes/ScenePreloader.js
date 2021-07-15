@@ -91,8 +91,220 @@ export default class ScenePreloader extends Phaser.Scene {
 
     this.timedEvent = this.time.delayedCall(1500, this.ready, [], this);
 
+
+    this.load.audio('sndBtnDown', 'src/assets/sounds/sndBtnDown.wav');
+
     this.load.image('title', 'src/assets/title.png');
     this.load.image('startBtn', 'src/assets/gui/Start_BTN.png');
-    this.load.audio('sndBtnDown', 'src/assets/sounds/sndBtnDown.wav');
+    this.load.image('sky', 'src/assets/sky.png');
+    this.load.image('far-ground', 'src/assets/far-grounds.png');
+    this.load.image('ground', 'src/assets/tile.png');
+
+    this.load.spritesheet('gunner-red-idle-right', 'src/assets/characters/Gunner_Red_Idle_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-idle-left', 'src/assets/characters/Gunner_Red_Idle_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-run-right', 'src/assets/characters/Gunner_Red_Run_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-run-left', 'src/assets/characters/Gunner_Red_Run_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-jump-right', 'src/assets/characters/Gunner_Red_Jump_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-jump-left', 'src/assets/characters/Gunner_Red_Jump_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-death-right', 'src/assets/characters/Gunner_Red_Death_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-death-left', 'src/assets/characters/Gunner_Red_Death_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-crouch-right', 'src/assets/characters/Gunner_Red_Crouch_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-red-crouch-left', 'src/assets/characters/Gunner_Red_Crouch_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+
+    this.load.spritesheet('gunner-blue-idle-right', 'src/assets/characters/Gunner_Blue_Idle_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-idle-left', 'src/assets/characters/Gunner_Blue_Idle_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-run-right', 'src/assets/characters/Gunner_Blue_Run_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-run-left', 'src/assets/characters/Gunner_Blue_Run_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-jump-right', 'src/assets/characters/Gunner_Blue_Jump_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-jump-left', 'src/assets/characters/Gunner_Blue_Jump_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-death-right', 'src/assets/characters/Gunner_Blue_Death_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-death-left', 'src/assets/characters/Gunner_Blue_Death_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-crouch-right', 'src/assets/characters/Gunner_Blue_Crouch_right.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+    this.load.spritesheet('gunner-blue-crouch-left', 'src/assets/characters/Gunner_Blue_Crouch_left.png', {
+      frameWidth: 48,
+      frameHeight: 48,
+    });
+  }
+
+  create() {
+    this.anims.create({
+      key: 'gunner-red-idle-right-anim',
+      frames: this.anims.generateFrameNames('gunner-red-idle-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-idle-left-anim',
+      frames: this.anims.generateFrameNames('gunner-red-idle-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-run-right-anim',
+      frames: this.anims.generateFrameNames('gunner-red-run-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-run-left-anim',
+      frames: this.anims.generateFrameNames('gunner-red-run-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-jump-right-anim',
+      frames: this.anims.generateFrameNames('gunner-red-jump-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-jump-left-anim',
+      frames: this.anims.generateFrameNames('gunner-red-jump-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-death-right-anim',
+      frames: this.anims.generateFrameNames('gunner-red-death-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-death-left-anim',
+      frames: this.anims.generateFrameNames('gunner-red-death-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-red-crouch-right-anim',
+      frames: this.anims.generateFrameNames('gunner-red-crouch-right'),
+      frameRate: 20,
+      repeat: 1,
+    });
+    this.anims.create({
+      key: 'gunner-red-crouch-left-anim',
+      frames: this.anims.generateFrameNames('gunner-red-crouch-left'),
+      frameRate: 20,
+      repeat: 1,
+    });
+
+
+    this.anims.create({
+      key: 'gunner-blue-idle-right-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-idle-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-idle-left-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-idle-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-run-right-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-run-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-run-left-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-run-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-jump-right-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-jump-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-jump-left-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-jump-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-death-right-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-death-right'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-death-left-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-death-left'),
+      frameRate: 20,
+      repeat: -1,
+    });
+    this.anims.create({
+      key: 'gunner-blue-crouch-right-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-crouch-right', { start: 0, end: 3 }),
+      frameRate: 20,
+      repeat: 0,
+    });
+    this.anims.create({
+      key: 'gunner-blue-crouch-left-anim',
+      frames: this.anims.generateFrameNames('gunner-blue-crouch-left'),
+      frameRate: 20,
+      repeat: 0,
+    });
   }
 }
