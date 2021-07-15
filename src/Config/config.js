@@ -8,11 +8,12 @@ export default {
   type: Phaser.WEBGL,
   width: 640,
   height: 480,
+  parent: 'canvasContainer',
   backgroundColor: 'white',
   physics: {
     default: 'arcade',
     arcade: {
-      gravity: { x: 0, y: 0 },
+      gravity: { y: 480 },
     },
   },
   scene: [
