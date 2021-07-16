@@ -12,7 +12,7 @@ export default class Player extends Character {
     this.setData('isShooting', false);
     this.setData('timerShootDelay', 50);
     this.setData('timerShootTick', this.getData('timerShootDelay') - 1);
-    this.setData('health', 5);
+    this.setData('health', 1);
     this.setData('character', 'player');
   }
 

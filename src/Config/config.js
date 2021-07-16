@@ -4,6 +4,7 @@ import SceneBoot from '../Scenes/SceneBoot';
 import ScenePreloader from '../Scenes/ScenePreloader';
 import SceneTitle from '../Scenes/SceneTitle';
 import SceneGame from '../Scenes/SceneGame';
+import SceneGameOver from '../Scenes/SceneGameOver';
 import SceneLeaderBoard from '../Scenes/SceneLeaderBoard';
 
 export default {
@@ -12,6 +13,9 @@ export default {
   height: 480,
   parent: 'canvasContainer',
   backgroundColor: 'white',
+  dom: {
+    createContainer: true,
+  },
   physics: {
     default: 'arcade',
     arcade: {
@@ -23,6 +27,7 @@ export default {
     ScenePreloader,
     SceneTitle,
     SceneGame,
+    SceneGameOver,
     SceneLeaderBoard,
   ],
   plugins: {

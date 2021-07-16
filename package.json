@@ -46,7 +46,10 @@
   },
   "dependencies": {
     "canvas": "^2.8.0",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.1",
     "phaser": "^3.55.2",
-    "phaser-raycaster": "^0.9.3"
+    "phaser-raycaster": "^0.9.3",
+    "regenerator-runtime": "^0.13.7"
   }
 }

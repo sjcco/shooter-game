@@ -39,6 +39,9 @@ export default class SceneGame extends Phaser.Scene {
       ],
     };
 
+    this.music = this.sound.add('music');
+    this.music.play();
+
     this.setBackground();
     this.tallrigthPlataform = this.physics.add.staticImage(420, 425, 'tall-plataform').refreshBody();
     this.ground = this.physics.add.staticImage(this.game.config.width * 0.5, 450, 'ground').refreshBody();
@@ -152,7 +155,11 @@ export default class SceneGame extends Phaser.Scene {
   update() {
     if (this.player.getData('health') <= 0) {
       this.player.explode(true);
-      this.scene.start('LeaderBoard');
+      this.music.stop();
+
+      localStorage.setItem('score', this.score);
+
+      this.scene.start('gameOver');
     }
     if (!this.player.getData('isDead')) {
       this.player.update();
