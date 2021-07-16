@@ -91,7 +91,7 @@ export default class SceneGame extends Phaser.Scene {
     this.time.addEvent({
       delay: 2000,
       callback: () => {
-        if (this.enemies.getChildren().length <= 1) {
+        if (this.enemies.getChildren().length <= 4) {
           const enemy = new Enemy(
             this,
             ...getSpawnPoint(),
