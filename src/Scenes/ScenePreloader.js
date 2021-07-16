@@ -98,6 +98,7 @@ export default class ScenePreloader extends Phaser.Scene {
     this.load.audio('kill3', 'src/assets/sounds/impactsplat03.mp3');
     this.load.audio('kill4', 'src/assets/sounds/impactsplat04.mp3');
     this.load.audio('kill5', 'src/assets/sounds/impactsplat05.mp3');
+    this.load.audio('hurt', 'src/assets/sounds/Playersounds - Track 9 - Jump.wav');
 
     this.load.image('title', 'src/assets/title.png');
     this.load.image('startBtn', 'src/assets/gui/Start_BTN.png');
@@ -105,6 +106,14 @@ export default class ScenePreloader extends Phaser.Scene {
     this.load.image('far-ground', 'src/assets/far-grounds.png');
     this.load.image('ground', 'src/assets/tile.png');
     this.load.image('bullet', 'src/assets/bullet.png');
+    this.load.image('center-plataform', 'src/assets/plataform_tile.png');
+    this.load.image('small-left-plataform', 'src/assets/small-left-tile.png');
+    this.load.image('tall-plataform', 'src/assets/tall-plataform.png');
+    this.load.image('small-plataform', 'src/assets/small-tile.png');
+    this.load.image('long-plataform', 'src/assets/longer-tile.png');
+    this.load.image('health-bar', 'src/assets/Health_Bar_Table.png');
+    this.load.image('health-dot', 'src/assets/Health_Dot.png');
+
 
     this.load.spritesheet('sprExplosion', 'src/assets/sprExplosion.png', {
       frameWidth: 32,
