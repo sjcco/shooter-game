@@ -1,10 +1,22 @@
-# Phaser 3 Webpack Project Template
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-A Phaser 3 project template with ES6 support via [Babel 7](https://babeljs.io/) and [Webpack 4](https://webpack.js.org/) that includes hot-reloading for development and production-ready builds.
+# To-do list
 
-This has been updated for Phaser 3.50.0 version and above.
+![screenshot](./screenshot.png)
 
-Loading images via JavaScript module `import` is also supported, although not recommended.
+WeatherApp that displays the weather of the searched city.
+
+## Built With
+
+- Javascript
+- Bootstrap
+- NPM Webpack
+- Phaser 3
+
+## Live Demo
+
+[Live Demo Link](https://infallible-shannon-bbd3f2.netlify.app/)
+
 
 ## Requirements
 
@@ -18,32 +30,39 @@ Loading images via JavaScript module `import` is also supported, although not re
 | `npm start` | Build project and open web server running project |
 | `npm run build` | Builds code bundle with production settings (minification, uglification, etc..) |
 
-## Writing Code
+## Getting Started
 
-After cloning the repo, run `npm install` from your project directory. Then, you can start the local development server by running `npm start`.
+- First clone the project by running `git clone https://github.com/sjcco/WeatherApp`.
+- navigate to project folder using `cd`.
+- Sign up in [here](https://openweathermap.org/) and generate a free key.
+- create a new file called `.env` in the root of the project.
+- Inside the file  save your key like this `WEATHER_API_KEY = yourkey`
+- Run `npm install` to install the needed.
+- Run `npm start` to open in browser.
 
-After starting the development server with `npm start`, you can edit any files in the `src` folder and webpack will automatically recompile and reload your server (available at `http://localhost:8080` by default).
+## Authors
 
-## Customizing the Template
+👤 **Juan Carlos Campos Ojeda**
 
-### Babel
+- GitHub: [@sjcco](https://github.com/githubhandle)
+- Twitter: [@CarlosCamposO](https://twitter.com/twitterhandle)
+- LinkedIn: [jcarlos-campos](https://linkedin.com/jcarlos-campos)
 
-You can write modern ES6+ JavaScript and Babel will transpile it to a version of JavaScript that you want your project to support. The targeted browsers are set in the `.babelrc` file and the default currently targets all browsers with total usage over "0.25%" but excludes IE11 and Opera Mini.
 
- ```
-"browsers": [
-  ">0.25%",
-  "not ie 11",
-  "not op_mini all"
-]
- ```
+## 🤝 Contributing
 
-### Webpack
+Contributions, issues, and feature requests are welcome!
 
-If you want to customize your build, such as adding a new webpack loader or plugin (i.e. for loading CSS or fonts), you can modify the `webpack/base.js` file for cross-project changes, or you can modify and/or create new configuration files and target them in specific npm tasks inside of `package.json'.
+Feel free to check the [issues page](http://github.com/sjcco/shooter-game/issues/).
 
-## Deploying Code
+## Show your support
 
-After you run the `npm run build` command, your code will be built into a single bundle located at `dist/bundle.min.js` along with any other assets you project depended. 
+Give a ⭐️ if you like this project!
 
-If you put the contents of the `dist` folder in a publicly-accessible location (say something like `http://mycoolserver.com`), you should be able to open `http://mycoolserver.com/index.html` and play your game.
+## Acknowledgments
+
+- microverse team
+
+## 📝 License
+
+Available as open source under the terms of the [MIT](https://opensource.org/licenses/MIT) licence.
