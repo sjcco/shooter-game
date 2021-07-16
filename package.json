@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "canvas": "^2.8.0",
-    "phaser": "^3.55.2"
+    "phaser": "^3.55.2",
+    "phaser-raycaster": "^0.9.3"
   }
 }
