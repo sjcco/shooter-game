@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
 import { uploadScore } from '../sys/api';
+
 export default class SceneGameOver extends Phaser.Scene {
   constructor() {
     super({ key: 'gameOver' });
