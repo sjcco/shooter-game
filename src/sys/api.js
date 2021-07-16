@@ -26,7 +26,7 @@ const uploadScore = async (name, score) => {
 };
 
 const getRankings = async () => {
-  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameid}/scores/`;
   const options = {
     method: 'GET',
     mode: 'cors',
