@@ -32,11 +32,8 @@ WeatherApp that displays the weather of the searched city.
 
 ## Getting Started
 
-- First clone the project by running `git clone https://github.com/sjcco/WeatherApp`.
+- First clone the project by running `git clone https://github.com/sjcco/shooter-game.
 - navigate to project folder using `cd`.
-- Sign up in [here](https://openweathermap.org/) and generate a free key.
-- create a new file called `.env` in the root of the project.
-- Inside the file  save your key like this `WEATHER_API_KEY = yourkey`
 - Run `npm install` to install the needed.
 - Run `npm start` to open in browser.
 
