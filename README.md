@@ -19,11 +19,24 @@ Shooter game using Phaser 3.
 
 ## Game Design Document
 
-# Characters
+### Characters
 
-| Player | enemies |
+| **Player** | **enemies** |
 |--------|---------|
 | ![](./player_character.png) | ![](./enemy_character.png) |
+
+### Controls
+
+- Player can move right, left and jump using the arrow keys.
+- hold space key for automatic fire or tap for semi-automatic fire (faster fire-rate).
+
+### Objective
+
+- Kill enemies to earn points while dodging enemy bullets and navigating through the terrain spaced to make every jump hard.
+
+### Optional
+
+- After the game if you are satisfied with your score you can save it to try to get into the Top Ten
 
 
 ## Requirements
