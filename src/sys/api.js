@@ -3,14 +3,12 @@ import sortByScore from '../helpers/sortByScore';
 
 const fetch = require('node-fetch');
 
-const gameid = 'SM0081n4SaoYJlBFbH2S';
-
 const uploadScore = async (name, score) => {
   const data = {
     user: name,
     score,
   };
-  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameid}/scores/`;
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
   const options = {
     method: 'POST',
     mode: 'cors',
@@ -26,7 +24,7 @@ const uploadScore = async (name, score) => {
 };
 
 const getRankings = async () => {
-  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${gameid}/scores/`;
+  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
   const options = {
     method: 'GET',
     mode: 'cors',
