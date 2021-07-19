@@ -12,7 +12,7 @@ export default class SceneGameOver extends Phaser.Scene {
   }
 
   create() {
-    this.title = this.add.text(this.game.config.width * 0.5, 80, 'GAME OVER', {
+    this.title = this.add.text(this.game.config.width * 0.5 + 15, 80, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -21,7 +21,7 @@ export default class SceneGameOver extends Phaser.Scene {
     });
     this.title.setOrigin(0.5);
 
-    this.saveScore = this.add.text(432, 145, `Enter your name to save your score (${this.score}). Press ENTER when done`, {
+    this.saveScore = this.add.text(this.game.config.width * 0.5 + 30, 145, `Your Score ${this.score}.\n Press ENTER when done`, {
       fontFamily: 'monospace',
       fontSize: 24,
       fontStyle: 'normal',
@@ -31,7 +31,7 @@ export default class SceneGameOver extends Phaser.Scene {
     });
     this.saveScore.setOrigin(0.6);
 
-    this.nameInput = this.add.dom(650, 220).createFromCache('form');
+    this.nameInput = this.add.dom(325, 220).createFromCache('form');
 
     this.returnKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ENTER);
 

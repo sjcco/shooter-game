@@ -12,6 +12,7 @@ export default {
   width: 640,
   height: 480,
   parent: 'canvasContainer',
+  autoCenter: Phaser.Scale.CENTER_BOTH,
   backgroundColor: 'white',
   dom: {
     createContainer: true,
