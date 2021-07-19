@@ -1,10 +1,10 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# To-do list
+# Killer Elite
 
 ![screenshot](./screenshot.png)
 
-WeatherApp that displays the weather of the searched city.
+Shooter game using Phaser 3.
 
 ## Built With
 
@@ -16,6 +16,14 @@ WeatherApp that displays the weather of the searched city.
 ## Live Demo
 
 [Live Demo Link](https://infallible-shannon-bbd3f2.netlify.app/)
+
+## Game Design Document
+
+# Characters
+
+| Player | enemies |
+|--------|---------|
+| ![player](./player_character.png) | ![player](./player_character.png) |
 
 
 ## Requirements
