@@ -23,7 +23,7 @@ Shooter game using Phaser 3.
 
 | Player | enemies |
 |--------|---------|
-| [](./player_character.png) | ![](./player_character.png) |
+| ![](./player_character.png) | ![](./enemy_character.png) |
 
 
 ## Requirements
