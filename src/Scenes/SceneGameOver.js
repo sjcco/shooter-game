@@ -8,10 +8,14 @@ export default class SceneGameOver extends Phaser.Scene {
 
   preload() {
     this.load.html('form', 'src/assets/gui/form.html');
-    this.score = localStorage.getItem('score');
+    // this.score = localStorage.getItem('score');
+    this.score = 3;
   }
 
   create() {
+    this.sfx = {
+      btnDown: this.sound.add('sndBtnDown'),
+    };
     this.title = this.add.text(this.game.config.width * 0.5 + 15, 80, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
@@ -38,8 +42,43 @@ export default class SceneGameOver extends Phaser.Scene {
     this.returnKey.on('up', () => {
       const name = this.nameInput.getChildByName('name');
       if (name.value !== '') {
-        uploadScore(name.value, this.score);
-        this.scene.start('LeaderBoard');
+        uploadScore(name.value, this.score)
+          .then(() => {
+            this.scene.start('LeaderBoard');
+          })
+          .catch((err) => {
+            this.add.text(this.game.config.width * 0.27, 300, `Oops ${err.message}`, {
+              fontFamily: 'monospace',
+              fontSize: 20,
+              fontStyle: 'bold',
+              color: '#fa5',
+              align: 'left',
+            }).setOrigin(0);
+
+            this.add.text(this.game.config.width * 0.12, 350, 'Press this button to go back to title screen', {
+              fontFamily: 'monospace',
+              fontSize: 20,
+              fontStyle: 'bold',
+              color: '#fa5',
+              align: 'left',
+            }).setOrigin(0);
+
+            this.replayBtn = this.add.sprite(
+              this.game.config.width * 0.5,
+              (this.game.config.height * 0.5) + 180,
+              'replayBtn',
+            );
+            this.replayBtn.setScale(0.3);
+
+            this.replayBtn.setInteractive();
+            this.replayBtn.on('pointerdown', () => {
+              this.sfx.btnDown.play();
+            }, this);
+
+            this.replayBtn.on('pointerup', () => {
+              this.scene.start('Title');
+            }, this);
+          });
       }
     });
   }

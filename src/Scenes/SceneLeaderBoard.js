@@ -12,7 +12,7 @@ export default class SceneLeaderBoard extends Phaser.Scene {
     };
     this.rankings = getRankings();
 
-    this.title = this.add.text(200, 55, 'Top 10 Scores', {
+    this.title = this.add.text((this.game.config.width * 0.33) + 30, 55, 'Top 10 Scores', {
       fontSize: '28px',
       fill: '#fff',
       fontFamily: 'Mate SC',
@@ -22,7 +22,7 @@ export default class SceneLeaderBoard extends Phaser.Scene {
       const topTen = achievement.slice(0, 10);
 
       for (let i = 0; i < topTen.length; i += 1) {
-        this.add.text(this.game.config.width * 0.33, 80 + (i + 1) * 25, `${i + 1}º: ${topTen[i].user}: ${topTen[i].score}`, {
+        this.add.text(this.game.config.width * 0.40, 80 + (i + 1) * 25, `${i + 1}º: ${topTen[i].user}: ${topTen[i].score}`, {
           fontFamily: 'monospace',
           fontSize: 15,
           fontStyle: 'bold',
@@ -30,6 +30,14 @@ export default class SceneLeaderBoard extends Phaser.Scene {
           align: 'left',
         }).setOrigin(0);
       }
+    }).catch((err) => {
+      this.add.text(this.game.config.width * 0.27, 200, `Oops ${err.message}`, {
+        fontFamily: 'monospace',
+        fontSize: 20,
+        fontStyle: 'bold',
+        color: '#fa5',
+        align: 'left',
+      }).setOrigin(0);
     });
 
     this.replayBtn = this.add.sprite(

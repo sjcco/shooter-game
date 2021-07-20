@@ -24,7 +24,7 @@ export default class SceneTitle extends Phaser.Scene {
     }, this);
 
     this.btnStart.on('pointerup', () => {
-      this.scene.start('Game');
+      this.scene.start('gameOver');
     }, this);
   }
 }

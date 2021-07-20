@@ -8,32 +8,40 @@ const uploadScore = async (name, score) => {
     user: name,
     score,
   };
-  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
-  const options = {
-    method: 'POST',
-    mode: 'cors',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  };
+  try {
+    const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
+    const options = {
+      method: 'POST',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    };
 
-  const response = await fetch(url, options);
-  const result = await response.json();
-  return result;
+    const response = await fetch(url, options);
+    const result = await response.json();
+    return result;
+  } catch (err) {
+    throw new Error('Something went wrong');
+  }
 };
 
 const getRankings = async () => {
-  const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
-  const options = {
-    method: 'GET',
-    mode: 'cors',
-    headers: { 'Content-Type': 'application/json' },
-  };
+  try {
+    const url = `https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/${process.env.GAME_ID}/scores/`;
+    const options = {
+      method: 'GET',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+    };
 
-  const response = await fetch(url, options);
-  const data = await response.json();
-  return sortByScore(data.result);
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return sortByScore(data.result);
+  } catch (err) {
+    throw new Error('Something went wrong');
+  }
 };
 
 export {
