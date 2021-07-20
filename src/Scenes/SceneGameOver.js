@@ -8,8 +8,7 @@ export default class SceneGameOver extends Phaser.Scene {
 
   preload() {
     this.load.html('form', 'src/assets/gui/form.html');
-    // this.score = localStorage.getItem('score');
-    this.score = 3;
+    this.score = localStorage.getItem('score');
   }
 
   create() {
