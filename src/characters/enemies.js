@@ -126,6 +126,7 @@ export default class Enemy extends character {
         this.idle();
       }
     } else {
+      this.play('Explosion', false);
       this.destroy();
     }
   }

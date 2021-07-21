@@ -99,9 +99,11 @@ export default class ScenePreloader extends Phaser.Scene {
     this.load.audio('kill4', 'src/assets/sounds/impactsplat04.mp3');
     this.load.audio('kill5', 'src/assets/sounds/impactsplat05.mp3');
     this.load.audio('hurt', 'src/assets/sounds/Playersounds - Track 9 - Jump.wav');
+    this.load.audio('music', 'src/assets/sounds/jitorator.mp3');
 
     this.load.image('title', 'src/assets/title.png');
     this.load.image('startBtn', 'src/assets/gui/Start_BTN.png');
+    this.load.image('replayBtn', 'src/assets/gui/Replay_BTN.png');
     this.load.image('sky', 'src/assets/sky.png');
     this.load.image('far-ground', 'src/assets/far-grounds.png');
     this.load.image('ground', 'src/assets/tile.png');

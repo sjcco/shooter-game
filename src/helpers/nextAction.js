@@ -8,6 +8,7 @@ export default function nextAction() {
     'left',
     'right',
     'nothing',
+    'nothing',
   ];
   return actions[Math.floor(Math.random() * actions.length)];
 }
