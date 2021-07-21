@@ -3,6 +3,10 @@ const path = require('path');// eslint-disable-line import/no-extraneous-depende
 const HtmlWebpackPlugin = require('html-webpack-plugin');// eslint-disable-line import/no-extraneous-dependencies
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');// eslint-disable-line import/no-extraneous-dependencies
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");// eslint-disable-line 
+const dotenv = require('dotenv');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const CopyPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   mode: 'development',
   devtool: 'eval-source-map',
@@ -41,5 +45,13 @@ module.exports = {
       template: './index.html',
     }),
     new MiniCssExtractPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(dotenv.config().parsed),
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: './src/assets/', to: './src/assets/' },
+      ],
+    }),
   ],
 };
